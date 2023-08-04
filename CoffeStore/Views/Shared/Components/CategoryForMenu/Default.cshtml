@@ -1,0 +1,8 @@
+﻿@using CoffeStore.EL;
+@model List<Category>
+
+@foreach(var x in Model)
+{
+
+    <a href="/Menu/Index/@x.CategoryId" class="btn btn-outline-dark" for="tab3">@x.Name</a>
+}

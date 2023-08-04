@@ -1,0 +1,83 @@
+﻿@using CoffeStore.EL;
+@model List<Product>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="w3l-breadcrumb">
+    <div class="container">
+        <ul class="breadcrumbs-custom-path">
+            <li><a href="/Home/Index/">Ana Səhifə</a></li>
+            <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> Menumuz</li>
+        </ul>
+    </div>
+</section>
+<div class="w3l-menublock py-5">
+    <!-- menu block -->
+    <div id="w3l-menublock" class="text-center py-lg-4 py-md-3">
+        <div class="container">
+           @* <div class="title-content mb-5">
+                <h5 class="title-small text-center mb-2">Check it below</h5>
+                <h3 class="title-big text-center mb-5">Our Menu Items</h3>
+            </div>*@
+
+
+            @await Component.InvokeAsync("CategoryForMenu")
+
+            <section class=" text-left">
+                    <div class="row menu-body">
+                    @foreach (var x in Model.OrderByDescending(x=>x.ProductId).Take(4))
+                    {
+                        <div class="col-lg-6 menu-section pr-lg-5">
+                            <div class="menu-item">
+                                <img src="@x.Image" alt="" class="radius-image img-fluid">
+                                <div>
+                                    <div class="row border-dot no-gutters">
+                                        <div class="col-8 menu-item-name">
+                                            <h6>@x.Name</h6>
+                                        </div>
+                                        <div class="col-4 menu-item-price text-right">
+                                            <h6>@x.Price AZN</h6>
+                                        </div>
+                                    </div>
+                                    <div class="menu-item-description">
+                                        <p>@x.Description</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    @foreach (var x in Model.Take(4))
+                    {
+                        <div class="col-lg-6 menu-section pl-lg-5">
+                            <div class="menu-item">
+                                <img src="@x.Image" alt="" class="radius-image img-fluid">
+                                <div>
+                                    <div class="row border-dot no-gutters">
+                                        <div class="col-8 menu-item-name">
+                                            <h6>@x.Name</h6>
+                                        </div>
+                                        <div class="col-4 menu-item-price text-right">
+                                            <h6>@x.Price AZN</h6>
+                                        </div>
+                                    </div>
+                                    <div class="menu-item-description">
+                                        <p>@x.Description</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    </div>
+                       
+
+                </section>
+
+            
+
+        </div>
+    </div>
+    <!-- menu block -->
+</div>
+

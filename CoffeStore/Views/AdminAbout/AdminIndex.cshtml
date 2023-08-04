@@ -1,0 +1,61 @@
+﻿@using CoffeStore.EL;
+@model List<About>
+@{
+    ViewData["Title"] = "AdminIndex";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<div class="wrapper wrapper-content animated fadeInRight">
+    @foreach(var m in Model)
+    {
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox product-detail">
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="product-images">
+                                  <img src="@m.Image" style="width:450px; height:385px;"/>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <h2 class="font-bold m-b-xs">
+                                    @m.Title
+                                </h2>
+                                <small>@m.Description</small>
+                                <hr>
+                                <h4>@m.AboutUs</h4>
+                                
+                                <hr>
+                                <div class="attachment">
+                                  
+                                
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div>
+                                    <div class="btn-group">
+                                        <a href="/AdminAbout/Add/" class="btn btn-primary btn-sm"><i class="fa fa-cart-plus"></i>Yeni</a>
+                                        <a href="/AdminAbout/Delete/@m.Id" class="btn btn-white btn-sm"><i class="fa fa-archive"></i>Sil</a>
+                                        <a href="/AdminAbout/Update/@m.Id" class="btn btn-white btn-sm"><i class="fa fa-refresh"></i>Yenilə</a>
+                                        @if (m.Status == true)
+                                        {
+                                            <a href="/AdminAbout/ChangeToFalse/@m.Id" class="btn btn-white btn-sm"><i class="fa fa-check-square-o "> </i>Passiv et</a>
+                                        }
+                                        else
+                                        {
+                                            <a href="/AdminAbout/ChangeToTrue/@m.Id" class="btn btn-white btn-sm"><i class="fa fa-check-square "> </i>Aktiv et</a>
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+              
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

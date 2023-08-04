@@ -1,0 +1,81 @@
+﻿@using CoffeStore.EL;
+@model Contact
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="w3l-breadcrumb">
+    <div class="container">
+        <ul class="breadcrumbs-custom-path">
+            <li><a href="/Home/Index/">Ana Səhifə</a></li>
+            <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> Əlaqə</li>
+        </ul>
+    </div>
+</section>
+<!-- /contact-form -->
+<section class="w3l-contact-6 py-5" id="contact">
+    <div class="contact-info  py-lg-4 py-md-3">
+        <div class="container">
+            <div class="title-content mb-5">
+                <h5 class="title-small text-center mb-2">Bizimlə Əlaqə</h5>
+            </div>
+            <div class="grid contact-grids pt-3">
+                <div class="contact-left">
+                    <div class="grid">
+                        <span class="fa fa-map-marker"></span>
+                        <div class="location-info">
+                            <span>Adres</span>
+                            <p> Yasamal D.Bünyadzadə 11D </p>
+                            <p> Baku, Azərbaycan</p>
+                        </div>
+                    </div>
+                    <div class="grid">
+                        <span class="fa fa-envelope-o"></span>
+                        <div class="email-info">
+                            <span>Bizə Sualınız Var?</span>
+                            <a href="mailto:muffinyasamal@gail.com"> muffinyasamal@gail.com</a>
+                        </div>
+                    </div>
+                    <div class="grid">
+                        <span class="fa fa-phone"></span>
+                        <div class="email-info">
+                            <span>Phone Number</span>
+                            <a href="tel: +(994)-51-573-52-65">  +(994)-51-573-52-65</a><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="contacts12-main">
+                    <form  method="post" class="signin-form">
+                        <div class="input-grids">
+                            <div>
+                                <label class="form-field" for="w3lName">Name</label>
+                                <input type="text" asp-for="Name" id="w3lName" placeholder="Adınız"
+                                    class="contact-input" />
+                            </div>
+                            <div>
+                                <label class="form-field" for="w3lSender">Email Adresiniz</label class="form-field">
+                                <input type="email" asp-for="EmailAddress" id="w3lSender" placeholder="Mail Adresiniz"
+                                    class="contact-input" />
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="form-field" for="w3lSubect">Başlıq</label class="form-field">
+                            <input type="text" asp-for="Subject" id="w3lSubect" placeholder="Başlıq"
+                                class="contact-input" />
+                        </div>
+                        <div>
+                            <label class="form-field" for="w3lMessage">Mesajınız</label class="form-field">
+                            <textarea asp-for="Body" id="w3lMessage" placeholder="Mesajınız"
+                                required=""></textarea>
+                        </div>
+                        <div class="text-right">
+                            <button class="btn btn-style btn-primary submit">Göndər</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+</section>
+
